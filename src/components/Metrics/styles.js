@@ -4,6 +4,7 @@ export const StyledDataTable = styled.div`
   overflow-x : auto;
   width : 90%;
   margin : auto;
+  position:relative;
 `
 
 export const TextField = styled.input`
@@ -16,7 +17,10 @@ export const TextField = styled.input`
   border-bottom-right-radius: 0;
   border: 1px solid #e5e5e5;
   padding: 0 32px 0 16px;
-
+  position:absolute;
+  right:0;
+  top:27px;
+  z-index:1000;
   &:hover {
     cursor: pointer;
   }
