@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 
-const InfoList = () => {
+const Metrics = () => {
   let [metrics, setMetrics] = useState([]);
   let [tableLines, setTableLines] = useState([])
   let [searchText, setSearchText] = useState('')
@@ -157,4 +157,4 @@ const InfoList = () => {
 }
 
 
-export default InfoList;
+export default Metrics;

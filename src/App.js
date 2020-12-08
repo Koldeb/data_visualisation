@@ -1,10 +1,10 @@
 import './App.css';
-import InfoList from './components/InfoList'
+import Metrics from './components/Metrics'
 
 function App() {
   return (
     <div className="App">
-      <InfoList/>
+      <Metrics/>
     </div>
   );
 }
