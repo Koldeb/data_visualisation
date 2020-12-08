@@ -6,109 +6,7 @@ import { filters } from './filters'
 import { StyledDataTable } from './styles'
 import "react-datepicker/dist/react-datepicker.css";
 
-const columnsDefinition = [
-  {
-    name: 'Time',
-    selector: 'time',
-    sortable: true,
-    minWidth:'100px'
-  },
-  {
-    name: 'Files',
-    selector: 'files',
-    sortable: 'true',
-  },
-  {
-    name: 'Inodes',
-    selector: 'inodes',
-    sortable: true,
-  },
-  {
-    name: 'Received',
-    selector: 'recv',
-    sortable: true,
-  },
-  {
-    name: 'Send',
-    selector: 'send',
-    sortable: true,
-  },
-  {
-    name: 'Used',
-    selector: 'used',
-    sortable: true,
-  },
-  {
-    name: 'Buff',
-    selector: 'buff',
-    sortable: true,
-  },
-  {
-    name: 'Cach',
-    selector: 'cach',
-    sortable: true,
-  },
-  {
-    name: 'Free',
-    selector: 'free',
-    sortable: true,
-  },
-  {
-    name: 'Usr',
-    selector: 'usr',
-    sortable: true,
-  },
-  {
-    name: 'Sys',
-    selector: 'sys',
-    sortable: true,
-  },
-  {
-    name: 'Idl',
-    selector: 'idl',
-    sortable: true,
-  },
-  {
-    name: 'Wai',
-    selector: 'wai',
-    sortable: true,
-  },
-  {
-    name: 'Hiq',
-    selector: 'hiq',
-    sortable: true,
-  },
-  {
-    name: 'Siq',
-    selector: 'siq',
-    sortable: true,
-  },
-  {
-    name: 'Read',
-    selector: 'read',
-    sortable: true,
-  },
-  {
-    name: 'Writ',
-    selector: 'writ',
-    sortable: true,
-  },
-  {
-    name: '1m',
-    selector: '1m',
-    sortable: true,
-  },
-  {
-    name: '5m',
-    selector: '5m',
-    sortable: true,
-  },
-  {
-    name: '15m',
-    selector: '15m',
-    sortable: true,
-  },
-]
+
 
 const InfoList = () => {
   let [metrics, setMetrics] = useState([]);
@@ -137,7 +35,111 @@ const InfoList = () => {
     // let filteredListByDate = startDate ? filters.listByDate(filteredListByText, startDate, endDate) : filteredListByText
     setTableLines(filteredListByText)
   }
-
+  const columnsDefinition = [
+    {
+      name: 'Time',
+      selector: 'time',
+      sortable: true,
+      minWidth:'150px'
+    },
+    {
+      name: 'Files',
+      selector: 'files',
+      sortable: 'true',
+    },
+    {
+      name: 'Inodes',
+      selector: 'inodes',
+      sortable: true,
+    },
+    {
+      name: 'Received',
+      selector: 'recv',
+      sortable: true,
+    },
+    {
+      name: 'Send',
+      selector: 'send',
+      sortable: true,
+    },
+    {
+      name: 'Used',
+      selector: 'used',
+      sortable: true,
+      minWidth:'150px'
+    },
+    {
+      name: 'Buff',
+      selector: 'buff',
+      sortable: true,
+    },
+    {
+      name: 'Cach',
+      selector: 'cach',
+      sortable: true,
+    },
+    {
+      name: 'Free',
+      selector: 'free',
+      sortable: true,
+      minWidth:'150px'
+    },
+    {
+      name: 'Usr',
+      selector: 'usr',
+      sortable: true,
+    },
+    {
+      name: 'Sys',
+      selector: 'sys',
+      sortable: true,
+    },
+    {
+      name: 'Idl',
+      selector: 'idl',
+      sortable: true,
+    },
+    {
+      name: 'Wai',
+      selector: 'wai',
+      sortable: true,
+    },
+    {
+      name: 'Hiq',
+      selector: 'hiq',
+      sortable: true,
+    },
+    {
+      name: 'Siq',
+      selector: 'siq',
+      sortable: true,
+    },
+    {
+      name: 'Read',
+      selector: 'read',
+      sortable: true,
+    },
+    {
+      name: 'Writ',
+      selector: 'writ',
+      sortable: true,
+    },
+    {
+      name: '1m',
+      selector: '1m',
+      sortable: true,
+    },
+    {
+      name: '5m',
+      selector: '5m',
+      sortable: true,
+    },
+    {
+      name: '15m',
+      selector: '15m',
+      sortable: true,
+    },
+  ]
   return(
     <StyledDataTable>
        <input value={searchText} onChange={e => setSearchText(e.target.value)} />
