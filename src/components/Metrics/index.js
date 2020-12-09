@@ -28,7 +28,7 @@ const Metrics = () => {
     }
     setMetrics(response.data)
   }
-  function updateList() {
+  const updateList = () => {
     let lines = metrics
     lines = searchText ? filters.listByText(lines, searchText) : lines
     lines = startDate && endDate ? filters.listByDate(lines, startDate, endDate) : lines

@@ -1,6 +1,6 @@
 import { createPopper } from '@popperjs/core';
 
-export function getColumnsDefinition(metrics) {
+export const getColumnsDefinition = (metrics) => {
   return [
     {
       name: 'Time',
@@ -111,7 +111,7 @@ export function getColumnsDefinition(metrics) {
 
 
 
-function ColumnText({title, propName, data}){
+const ColumnText = ({title, propName, data}) => {
 
   // const popcorn = document.querySelector('span');
   // const tooltip = document.querySelector('div');
@@ -119,15 +119,16 @@ function ColumnText({title, propName, data}){
   // createPopper(popcorn, tooltip, {
   //   placement: 'top',
   // });
-  
-  function numAverage(data) {
+
+  const numAverage = (data) => {
     let arrayNumber = data.map(x => x[propName])
     let a = arrayNumber.length
     let b = 0
     let i
 
     for (i = 0; i < a; i++){
-      b+= Number(arrayNumber[i]);
+      b+= Number(arrayNumber[i])
+      b+= Math.trunc(b)
     }
     return b/a;
   }
