@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 export const StyledDataTable = styled.div`
   width : 90%;
-  margin : auto;
+  margin : 50px auto;
   position:relative;
-  }
+  
 `
 export const StyledDatePicker = styled.div`
   position:absolute;
   z-index:1000;
   right:260px;
 
-.datePicker{
+  .datePicker{
     height: 32px;
     margin:10px;
     width: 200px;
@@ -20,7 +20,7 @@ export const StyledDatePicker = styled.div`
     z-index:1000;
     &:hover {
       cursor: pointer;
-    }
+  }
 `
 
 export const TextField = styled.input`
@@ -35,17 +35,4 @@ export const TextField = styled.input`
   &:hover {
     cursor: pointer;
   }
-`;
-
-export const ClearButton = styled.button`
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  height: 34px;
-  width: 32px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;

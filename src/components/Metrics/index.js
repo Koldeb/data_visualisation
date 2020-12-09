@@ -37,7 +37,7 @@ const Metrics = () => {
 
   return(
     <StyledDataTable>
-       <TextField value={searchText} onChange={e => setSearchText(e.target.value)} placeholder='Search type of metrics'/>
+       <TextField value={searchText} onChange={e => setSearchText(e.target.value)} placeholder='Search metrics (ex : 768)'/>
 
        <StyledDatePicker>
           <DatePicker 
