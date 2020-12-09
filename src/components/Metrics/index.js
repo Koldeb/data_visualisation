@@ -40,24 +40,29 @@ const Metrics = () => {
        <TextField value={searchText} onChange={e => setSearchText(e.target.value)} placeholder='Search metrics (ex : 768)'/>
 
        <StyledDatePicker>
-          
-          <DatePicker 
-            selected={startDate} 
-            onChange={date => setStartDate(date)}
-            showTimeSelect
-            withPortal
-            className='datePicker datePickerStartDate'
-            placeholder='Pick a date' 
-            dateFormat="Pp"/>
-
-          <DatePicker 
-            selected={endDate} 
-            onChange={date => setEndDate(date)}
-            showTimeSelect
-            withPortal
-            className='datePicker datePickerEndDate'
-            placeholder='Pick a date' 
-            dateFormat="Pp"/>
+         <div>
+            <span>Start Date</span>
+            <DatePicker 
+              selected={startDate} 
+              onChange={date => setStartDate(date)}
+              showTimeSelect
+              withPortal
+              className='datePicker datePickerStartDate'
+              placeholder='Pick a date' 
+              dateFormat="Pp"
+              label='Start date'/>
+          </div>
+          <div>
+            <span>End Date</span>
+            <DatePicker 
+              selected={endDate} 
+              onChange={date => setEndDate(date)}
+              showTimeSelect
+              withPortal
+              className='datePicker datePickerEndDate'
+              placeholder='Pick a date' 
+              dateFormat="Pp"/>
+          </div>
       </StyledDatePicker>
 
       <DataTable 
