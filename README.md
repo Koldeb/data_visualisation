@@ -5,10 +5,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 Before doing anything beyond, you need to make sure your project is initialized !
 
-### in the project directory
-`npm i` 
-or
+### in the project directory 
 `yarn add`
+
+(or `npm i` if you don't have yarn installed, make sure you change your command based on what you are using)
 
 Then in the project directory, you can run:
 
