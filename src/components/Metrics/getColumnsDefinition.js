@@ -124,13 +124,14 @@ function ColumnText({title, propName, data}){
     let arrayNumber = data.map(x => x[propName])
     let a = arrayNumber.length
     let b = 0
+    let moy = 0;
     let i
 
     for (i = 0; i < a; i++){
       b+= Number(arrayNumber[i])
-      b+= Math.trunc(b)
     }
-    return b/a;
+    moy = Math.trunc(b / a)
+    return moy;
   }
 
   return(
