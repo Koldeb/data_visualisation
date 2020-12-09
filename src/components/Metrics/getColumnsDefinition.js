@@ -1,4 +1,4 @@
-import { createPopper } from '@popperjs/core';
+import ReactTooltip from 'react-tooltip'
 
 export function getColumnsDefinition(metrics) {
   return [
@@ -112,14 +112,6 @@ export function getColumnsDefinition(metrics) {
 
 
 function ColumnText({title, propName, data}){
-
-  // const popcorn = document.querySelector('span');
-  // const tooltip = document.querySelector('div');
-
-  // createPopper(popcorn, tooltip, {
-  //   placement: 'top',
-  // });
-
   const numAverage = (data) => {
     let arrayNumber = data.map(x => x[propName])
     let a = arrayNumber.length
@@ -136,18 +128,19 @@ function ColumnText({title, propName, data}){
 
   return(
     <>
-      <span> {title} </span>
-      <div id="tooltip" role="tooltip">
-        Max : {
+     <div>
+      <span data-tip={
+        `Max : ${
           Math.max(...data.map(x => x[propName]))
-        }
-        <br/>
-        Min :  {
+        } |
+        Min :  ${
           Math.min(...data.map(x => x[propName]))
-        }<br/>
-        Moy : {
+        } |
+        Moy : ${
             numAverage(data)
-        }
+        }`}> {title} </span>
+
+      <ReactTooltip/>
       </div>
     </>
   )

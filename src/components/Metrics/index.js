@@ -3,7 +3,7 @@ import axios from 'axios'
 import DataTable from 'react-data-table-component'
 import DatePicker from 'react-datepicker'
 import { filters} from './filters'
-import { StyledDataTable, TextField } from './styles'
+import { StyledDataTable, TextField, StyledDatePicker } from './styles'
 import {getColumnsDefinition} from './getColumnsDefinition'
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -38,22 +38,24 @@ const Metrics = () => {
   return(
     <StyledDataTable>
        <TextField value={searchText} onChange={e => setSearchText(e.target.value)} placeholder='Search type of metrics'/>
-       
-      <DatePicker 
-        selected={startDate} 
-        onChange={date => setStartDate(date)}
-        showTimeSelect
-        className='datePicker'
-        placeholder='Pick a date' 
-        dateFormat="Pp"/>
 
-      <DatePicker 
-        selected={endDate} 
-        onChange={date => setEndDate(date)}
-        showTimeSelect
-        className='datePicker'
-        placeholder='Pick a date' 
-        dateFormat="Pp"/>
+       <StyledDatePicker>
+          <DatePicker 
+            selected={startDate} 
+            onChange={date => setStartDate(date)}
+            showTimeSelect
+            className='datePicker'
+            placeholder='Pick a date' 
+            dateFormat="Pp"/>
+
+          <DatePicker 
+            selected={endDate} 
+            onChange={date => setEndDate(date)}
+            showTimeSelect
+            className='datePicker'
+            placeholder='Pick a date' 
+            dateFormat="Pp"/>
+      </StyledDatePicker>
 
       <DataTable 
         title='Information système'
