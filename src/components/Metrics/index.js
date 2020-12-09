@@ -40,11 +40,13 @@ const Metrics = () => {
        <TextField value={searchText} onChange={e => setSearchText(e.target.value)} placeholder='Search metrics (ex : 768)'/>
 
        <StyledDatePicker>
+          
           <DatePicker 
             selected={startDate} 
             onChange={date => setStartDate(date)}
             showTimeSelect
-            className='datePicker'
+            withPortal
+            className='datePicker datePickerStartDate'
             placeholder='Pick a date' 
             dateFormat="Pp"/>
 
@@ -52,7 +54,8 @@ const Metrics = () => {
             selected={endDate} 
             onChange={date => setEndDate(date)}
             showTimeSelect
-            className='datePicker'
+            withPortal
+            className='datePicker datePickerEndDate'
             placeholder='Pick a date' 
             dateFormat="Pp"/>
       </StyledDatePicker>

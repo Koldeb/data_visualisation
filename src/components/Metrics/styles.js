@@ -10,7 +10,7 @@ export const StyledDatePicker = styled.div`
   position:absolute;
   z-index:1000;
   right:260px;
-
+  display:flex;
   .datePicker{
     height: 32px;
     margin:10px;
