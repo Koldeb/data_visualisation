@@ -4,19 +4,18 @@ import DataTable from 'react-data-table-component'
 import DatePicker from 'react-datepicker'
 import { filters} from './filters'
 import { StyledDataTable, TextField } from './styles'
+import {getColumnsDefinition} from './getColumnsDefinition'
 import "react-datepicker/dist/react-datepicker.css";
-
-
 
 const Metrics = () => {
   let [metrics, setMetrics] = useState([]);
   let [tableLines, setTableLines] = useState([])
   let [searchText, setSearchText] = useState('')
-  let [startDate, setStartDate] = useState(new Date()) // Mettre la dernière heure
+  let [startDate, setStartDate] = useState(new Date('2020-01-01'))
   let [endDate, setEndDate] = useState(new Date())
   
   useEffect( () => { fetchData() }, []);
-  useEffect(updateList, [searchText, metrics])
+  useEffect(updateList, [searchText, startDate, endDate, metrics])
   
   async function fetchData(){
     let response = await axios.get('metrics.json')
@@ -29,127 +28,37 @@ const Metrics = () => {
     }
     setMetrics(response.data)
   }
-
-
   function updateList() {
-    let filteredListByText = searchText ? filters.listByText(metrics, searchText) : metrics
-    let filteredListByDate = startDate ? filters.listByDate(filteredListByText, startDate, endDate) : filteredListByText
-    setTableLines(filteredListByText)
+    let lines = metrics
+    lines = searchText ? filters.listByText(lines, searchText) : lines
+    lines = startDate && endDate ? filters.listByDate(lines, startDate, endDate) : lines
+    setTableLines(lines)
   }
 
-  const columnsDefinition = [
-    {
-      name: 'Time',
-      selector: 'time',
-      sortable: true,
-      minWidth:'150px'
-    },
-    {
-      name: 'Files',
-      selector: 'files',
-      sortable: 'true',
-    },
-    {
-      name: 'Inodes',
-      selector: 'inodes',
-      sortable: true,
-    },
-    {
-      name: 'Received',
-      selector: 'recv',
-      sortable: true,
-    },
-    {
-      name: 'Send',
-      selector: 'send',
-      sortable: true,
-    },
-    {
-      name: 'Used',
-      selector: 'used',
-      sortable: true,
-      minWidth:'150px'
-    },
-    {
-      name: 'Buff',
-      selector: 'buff',
-      sortable: true,
-    },
-    {
-      name: 'Cach',
-      selector: 'cach',
-      sortable: true,
-    },
-    {
-      name: 'Free',
-      selector: 'free',
-      sortable: true,
-      minWidth:'150px'
-    },
-    {
-      name: 'Usr',
-      selector: 'usr',
-      sortable: true,
-    },
-    {
-      name: 'Sys',
-      selector: 'sys',
-      sortable: true,
-    },
-    {
-      name: 'Idl',
-      selector: 'idl',
-      sortable: true,
-    },
-    {
-      name: 'Wai',
-      selector: 'wai',
-      sortable: true,
-    },
-    {
-      name: 'Hiq',
-      selector: 'hiq',
-      sortable: true,
-    },
-    {
-      name: 'Siq',
-      selector: 'siq',
-      sortable: true,
-    },
-    {
-      name: 'Read',
-      selector: 'read',
-      sortable: true,
-    },
-    {
-      name: 'Writ',
-      selector: 'writ',
-      sortable: true,
-    },
-    {
-      name: '1m',
-      selector: '1m',
-      sortable: true,
-    },
-    {
-      name: '5m',
-      selector: '5m',
-      sortable: true,
-    },
-    {
-      name: '15m',
-      selector: '15m',
-      sortable: true,
-    },
-  ]
   return(
     <StyledDataTable>
-       <TextField value={searchText} onChange={e => setSearchText(e.target.value)} placeholder='Search metrics'/>
-      <DatePicker selected={startDate} onChange={date => setStartDate(date)}/>
+       <TextField value={searchText} onChange={e => setSearchText(e.target.value)} placeholder='Search type of metrics'/>
+       
+      <DatePicker 
+        selected={startDate} 
+        onChange={date => setStartDate(date)}
+        showTimeSelect
+        className='datePicker'
+        placeholder='Pick a date' 
+        dateFormat="Pp"/>
+
+      <DatePicker 
+        selected={endDate} 
+        onChange={date => setEndDate(date)}
+        showTimeSelect
+        className='datePicker'
+        placeholder='Pick a date' 
+        dateFormat="Pp"/>
+
       <DataTable 
         title='Information système'
         data={tableLines} 
-        columns={columnsDefinition}
+        columns={getColumnsDefinition(tableLines)}
         pagination
         striped
         highlightOnHover

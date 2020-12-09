@@ -1,22 +1,16 @@
+import * as dayjs from 'dayjs'
+import * as customParseFormat from 'dayjs/plugin/customParseFormat'
+dayjs.extend(customParseFormat)
 
 function filterListByText(list, text) {
   return list.filter(item => Object.values(item).find(value => value == text))
 }
+
 function filterListByDate(metrics, startDate, endDate){
   return metrics.filter(x => {
-    let isoDate = convertToIsoDate(x.time)
-    return isoDate >= startDate && isoDate <= endDate
+    let timeDate = dayjs(x.time, 'DD-MM HH:mm:ss')
+    return timeDate >= startDate && timeDate <= endDate
   })
-}
-function convertToIsoDate(date){
-  let convertDate = date.toISOString();
-  return convertDate;
-}
-
-function compareDate(a, b) {
-  if (a === b ) { return 0 }
-  if (a > b ) { return 1 }
-  if (a < b ) { return -1 }
 }
 
 export let filters = {
