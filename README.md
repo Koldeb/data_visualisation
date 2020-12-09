@@ -3,8 +3,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+Before doing anything beyond, you need to make sure your project is initialized
 
-In the project directory, you can run:
+# in the project directory
+`npm i` 
+or
+`yarn add`
+
+Then in the project directory, you can run:
 
 ### `yarn start`
 
