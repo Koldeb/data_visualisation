@@ -1,6 +1,6 @@
 import { createPopper } from '@popperjs/core';
 
-export const getColumnsDefinition = (metrics) => {
+export function getColumnsDefinition(metrics) {
   return [
     {
       name: 'Time',
@@ -111,7 +111,7 @@ export const getColumnsDefinition = (metrics) => {
 
 
 
-const ColumnText = ({title, propName, data}) => {
+function ColumnText({title, propName, data}){
 
   // const popcorn = document.querySelector('span');
   // const tooltip = document.querySelector('div');
