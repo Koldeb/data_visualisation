@@ -119,18 +119,19 @@ function ColumnText({title, propName, data}){
   // createPopper(popcorn, tooltip, {
   //   placement: 'top',
   // });
+  
   function numAverage(data) {
-    let arrayPropName = data.map(x => x[propName]);
-    let a = arrayPropName.length
+    let arrayNumber = data.map(x => x[propName])
+    let a = arrayNumber.length
     let b = 0
     let i
 
     for (i = 0; i < a; i++){
-      b+= Number(data[i]);
-      console.log(b);
+      b+= Number(arrayNumber[i]);
     }
     return b/a;
   }
+
   return(
     <>
       <span> {title} </span>
